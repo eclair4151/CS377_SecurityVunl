@@ -1,5 +1,6 @@
 .idea*/
 *.log
+*.db
 log/
 tmp/
 db/
