@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  match '/logout', to: 'logout#index' , :via => 'get'
+
   match '/profile', to: 'profile#index' , :via => 'get'
   match '/profile', to: 'profile#create' , :via => 'post'
 
