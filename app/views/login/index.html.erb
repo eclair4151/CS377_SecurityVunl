@@ -1,14 +1,23 @@
-<h1>Login#index,</h1>
-<p>Find me in app/views/login/index.html.erb</p>
-
-<form action="/login" > <!-- add method="post" to make it not in the header -->
-  Email:<br>
-  <input type="text" name="email" value="">
-  <br>
-  Password:<br>
-  <input type="text" name="password" value="">
-  <br><br>
-  <input type="submit" value="Login">
-</form>
-<br>
-<a href="/create_account">Create An Account</a>
+<body class="page-color">
+  <div class="container page-color">
+    <div class="base-color">
+      <h1>
+        VENMOLIGHT
+      </h1>
+    </div>
+    <div class="panel panel-default container-color col-sm-6 col-sm-offset-3" style="margin-top: 20px">
+      <form action="/login" class="panel-body panel-container">
+        <div class="form-group" style="margin: 15px">
+          <label for="usr">Name:</label>
+          <input type="text" class="form-control" id="usr" name="email">
+        </div>
+        <div class="form-group" style="margin: 15px">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="password">
+        </div>
+        <button type="submit" class="btn btn-default base-color" style="float:right; margin:15px;">LOGIN</button>
+        <a href="/create_account">Create An Account</a>
+      </form>
+    </div>
+  </div>
+</body>
