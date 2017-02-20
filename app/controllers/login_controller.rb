@@ -4,6 +4,7 @@ class LoginController < ApplicationController
   def index
     if cookies[:session_id] #session is valid
       redirect_to '/'
+      return
     end
 
     if params[:username] && params[:password] #logging in with params in header
