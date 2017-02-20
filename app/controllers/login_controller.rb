@@ -8,9 +8,16 @@ class LoginController < ApplicationController
     end
 
     if params[:email] && params[:password] #logging in with params in header
-        #here check username and password set cookie if correct and redirect to home
-      cookies[:session_id] = '123'
-      redirect_to '/'
+     user = Users.find_by(email: params[:email] , password: params[:password] )
+     if user
+       ses_id = SecureRandom.hex(16)
+       user.session_id = ses_id
+       cookies[:session_id] = ses_id
+       redirect_to '/'
+       return
+     else
+       redirect_to '/login'
+     end
     end
   end
 
