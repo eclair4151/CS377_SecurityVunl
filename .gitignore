@@ -1,6 +1,6 @@
 .idea*/
 *.log
-*.db
+*.sqlite3
 log/
 tmp/
-db/
+
