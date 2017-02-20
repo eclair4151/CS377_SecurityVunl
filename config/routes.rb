@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  match '/create_account', to: 'create_account#index' , :via => 'get'
+  match '/create_account', to: 'create_account#create' , :via => 'post'
+
   match '/bank_transfer', to: 'bank_transfer#index' , :via => 'get'
   match '/bank_transfer', to: 'bank_transfer#create' , :via => 'post'
 

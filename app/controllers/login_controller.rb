@@ -12,7 +12,6 @@ class LoginController < ApplicationController
       cookies[:session_id] = '123'
       redirect_to '/'
     end
-
   end
 
   def create #not used in bad coding
