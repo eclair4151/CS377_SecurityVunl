@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   match '/profile', to: 'profile#index' , :via => 'get'
   match '/profile', to: 'profile#create' , :via => 'post'
 
+  match '/banks', to: 'banks#destroy' , :via => 'delete'
   match '/banks', to: 'banks#index' , :via => 'get'
   match '/banks', to: 'banks#create' , :via => 'post'
 
