@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match '/bank_transfer', to: 'bank_transfer#index' , :via => 'get'
+  match '/bank_transfer', to: 'bank_transfer#create' , :via => 'post'
 
   match '/logout', to: 'logout#index' , :via => 'get'
 
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
   match '/transfer', to: 'transfer#index' , :via => 'get'
   match '/transfer', to: 'transfer#create' , :via => 'post'
+
   match '/login', to: 'login#index' , :via => 'get'
   match '/login', to: 'login#create' , :via => 'post'
 
