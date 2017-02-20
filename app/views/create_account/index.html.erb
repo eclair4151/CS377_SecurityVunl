@@ -1,2 +1,22 @@
 <h1>CreateAccount#index</h1>
 <p>Find me in app/views/create_account/index.html.erb</p>
+
+
+<form action="/create_account" method="post">
+  Email:<br>
+  <input type="text" name="email" value="">
+  <br>
+  First Name:<br>
+  <input type="text" name="first_name" value="">
+  <br>
+  Last Name:<br>
+  <input type="text" name="last_name" value="">
+  <br>
+  Password:<br>
+  <input type="text" name="password" value="">
+  <br>
+  Confirm Password:<br>
+  <input type="text" name="confirm_password" value="">
+  <br><br>
+  <input type="submit" value="Create Account">
+</form>

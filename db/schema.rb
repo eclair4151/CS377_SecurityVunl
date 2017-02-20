@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20170216164459) do
   create_table "users", force: :cascade do |t|
     t.text     "session_id"
     t.text     "email"
+    t.text     "first_name"
+    t.text     "last_name"
     t.text     "password"
     t.float    "money"
     t.datetime "created_at", null: false

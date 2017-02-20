@@ -3,6 +3,8 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.text :session_id, index: true
       t.text :email
+      t.text :first_name
+      t.text :last_name
       t.text :password
       t.float :money
       t.timestamps null: false

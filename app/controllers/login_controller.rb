@@ -7,7 +7,7 @@ class LoginController < ApplicationController
       return
     end
 
-    if params[:username] && params[:password] #logging in with params in header
+    if params[:email] && params[:password] #logging in with params in header
         #here check username and password set cookie if correct and redirect to home
       cookies[:session_id] = '123'
       redirect_to '/'
