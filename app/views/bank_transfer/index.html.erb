@@ -1,2 +1,42 @@
-<h1>BankTransfer#index</h1>
-<p>Find me in app/views/bank_transfer/index.html.erb</p>
+<h1>Make a Transfer</h1>
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Deposit</strong></div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="accountNum">Account #</label>
+        <input type="number" class="form-control" id="accountNum" placeholder="Account #">
+      </div>
+      <div class="form-group">
+        <label for="routingNum">Routing #</label>
+        <input type="number" class="form-control" id="routingNum" placeholder="Routing #">
+      </div>
+      <div class="form-group">
+        <label for="depositAmount">Deposit Amount</label>
+        <input type="number" class="form-control" id="depositAmount" placeholder="">
+      </div>
+      <button type="submit" class="btn btn-default">Make Deposit</button>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Withdrawal</strong></div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="accountNum">Account #</label>
+        <input type="number" class="form-control" id="accountNum" placeholder="Account #">
+      </div>
+      <div class="form-group">
+        <label for="routingNum">Routing #</label>
+        <input type="number" class="form-control" id="routingNum" placeholder="Routing #">
+      </div>
+      <div class="form-group">
+        <label for="withdrawalAmount">Withdrawal Amount</label>
+        <input type="number" class="form-control" id="withdrawalAmount" placeholder="">
+      </div>
+      <button type="submit" class="btn btn-default">Make Withdrawal</button>
+    </form>
+  </div>
+</div>
