@@ -1,10 +1,7 @@
-<h1>Profile#index</h1>
-<p>Find me in app/views/profile/index.html.erb</p>
-
 <!--Email, first name, last name, password, amt of $$$ -->
-<h1><%= @firstname %>  <%= @lastname %></h1>
-<p>Email: <%= @email %></p>
-<p>Password: <%= @pass %></p>
-<p>Current Balance: <%= @money %></p>
+<h1>Name: <%= @user.first_name %>  <%= @user.last_name %></h1>
+<p>Email: <%= @user.email %></p>
+<p>Password: <%= @user.password %></p>
+<p>Current Balance: <%= @user.money %></p>
 
 <a class="btn btn-primary" href="/" role="button">Back to Main</a>
