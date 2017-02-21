@@ -16,6 +16,7 @@
           <input type="password" class="form-control" id="pwd" name="password">
         </div>
         <button type="submit" class="btn btn-default base-color" style="float:right; margin:15px;">LOGIN</button>
+        <p id="error"  style="color:red"><%= flash[:error] %></p>
         <a href="/create_account">Create An Account</a>
       </form>
     </div>

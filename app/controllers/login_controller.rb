@@ -18,7 +18,7 @@ class LoginController < ApplicationController
        redirect_to '/'
        return
      else
-       redirect_to '/login'
+       redirect_to '/login', :flash => { :error => "Invalid Username or Password" }
      end
     end
   end
