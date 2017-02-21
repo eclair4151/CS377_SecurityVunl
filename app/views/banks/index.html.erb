@@ -11,14 +11,14 @@
     </tr>
   </thead>
   <tbody>
-  <% @banksname.each_with_index do |name, index| %>
+  <% @banks.each_with_index do |bank, index| %>
     <tr>
       <td><%= index %></td>
-      <td><%= name %></td>
-      <td>12345</td>
-      <td>54321</td>
+      <td><%= bank.bank_name %></td>
+      <td><%= bank.account_number %></td>
+      <td><%= bank.routing_number %></td>
       <td>
-        <button type="button" class="btn-xs btn-danger">X</button>
+        <a href="/banks/<%= bank.id %>" data-method="delete" data-confirm="Are You Sure?" type="button" class="btn-xs btn-danger">X</a>
       </td>
     </tr>
   <% end %>
@@ -28,18 +28,18 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <form>
+    <form  action="/banks" method="post">
       <div class="form-group">
         <label for="bankName">Bank Name</label>
-        <input type="text" class="form-control" id="bankName" placeholder="Name">
+        <input type="text" class="form-control" name="bank_name" id="bankName" placeholder="Name">
       </div>
       <div class="form-group">
         <label for="accountNum">Account #</label>
-        <input type="password" class="form-control" id="accountNum" placeholder="Account #">
+        <input type="password" class="form-control" name="account_number" id="accountNum" placeholder="Account #">
       </div>
       <div class="form-group">
         <label for="routingNum">Routing #</label>
-        <input type="password" class="form-control" id="routingNum" placeholder="Routing #">
+        <input type="password" class="form-control" name="routing_number" id="routingNum" placeholder="Routing #">
       </div>
       <button type="submit" class="btn btn-default">Add</button>
     </form>

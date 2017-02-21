@@ -13,6 +13,7 @@ class LoginController < ApplicationController
      if user
        ses_id = SecureRandom.hex(16)
        user.session_id = ses_id
+       user.save
        cookies[:session_id] = ses_id
        redirect_to '/'
        return

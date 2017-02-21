@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   match '/banks', to: 'banks#index' , :via => 'get'
   match '/banks', to: 'banks#create' , :via => 'post'
+  match '/banks/:id', to: 'banks#destroy' , :via => 'delete'
 
   match '/history', to: 'history#index' , :via => 'get'
 
