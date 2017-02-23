@@ -1,4 +1,6 @@
 class RequestController < ApplicationController
+  layout 'accountManagement'
+
   def index
   end
 
