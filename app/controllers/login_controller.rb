@@ -9,7 +9,7 @@ class LoginController < ApplicationController
     end
 
     if params[:email] && params[:password] #logging in with params in header
-     user = Users.find_by(email: params[:email] , password: params[:password] )
+     user = User.find_by(email: params[:email] , password: params[:password] )
      if user
        ses_id = SecureRandom.hex(16)
        user.session_id = ses_id

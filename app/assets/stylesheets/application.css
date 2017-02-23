@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+div .inner-yield{
+    padding: 0 30px 20px 30px;
+}

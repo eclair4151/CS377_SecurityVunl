@@ -22,24 +22,25 @@ ActiveRecord::Schema.define(version: 20170216164459) do
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
-  create_table "friends", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "user_id2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_friends_on_user_id"
-    t.index ["user_id2"], name: "index_friends_on_user_id2"
+  create_table "requests", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.float    "amount"
+    t.text     "message"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_requests_on_recipient_id"
+    t.index ["sender_id"], name: "index_requests_on_sender_id"
   end
 
   create_table "transactions", force: :cascade do |t|
     t.integer  "sender_id"
-    t.integer  "requester_id"
+    t.integer  "recipient_id"
     t.float    "amount"
-    t.boolean  "fulfilled"
     t.text     "message"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["requester_id"], name: "index_transactions_on_requester_id"
+    t.index ["recipient_id"], name: "index_transactions_on_recipient_id"
     t.index ["sender_id"], name: "index_transactions_on_sender_id"
   end
 

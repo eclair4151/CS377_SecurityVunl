@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   match '/history', to: 'history#index' , :via => 'get'
 
-  match '/request', to: 'request#index' , :via => 'get'
-  match '/request', to: 'request#create' , :via => 'post'
+  match '/requests', to: 'requests#index' , :via => 'get'
+  match '/requests', to: 'requests#create' , :via => 'post'
 
   match '/make_transfer', to: 'make_transfer#index' , :via => 'get'
 

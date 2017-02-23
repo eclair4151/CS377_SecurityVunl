@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 
   def authenticate_user
-    if not cookies[:session_id] or not Users.find_by_session_id(cookies[:session_id])
+    if not cookies[:session_id] or not User.find_by_session_id(cookies[:session_id])
       cookies.delete :session_id
       redirect_to "/login"
     end
