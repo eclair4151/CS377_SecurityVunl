@@ -51,9 +51,10 @@
       </div>
     </nav>
     <div class="inner-yield">
-      <%= yield %>
       <p id="error"  style="color:red"><%= flash[:error] %></p>
       <p id="message"  style="color:green"><%= flash[:message] %></p>
+      <%= yield %>
+
     </div>
   </div>
 </body>
