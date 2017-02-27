@@ -1,4 +1,23 @@
 <h1>Welcome to VenmoLight</h1>
 <div class = "container">
-  <p class="col-md-3">This is the home page for this website</p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Receiver</th>
+      <th>Message</th>
+      <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.sender.first_name %> <%= transaction.sender.last_name %></td>
+          <td><%= transaction.recipient.first_name %> <%= transaction.recipient.last_name %></td>
+          <td><%= raw transaction.message %></td>
+          <td><%= transaction.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
