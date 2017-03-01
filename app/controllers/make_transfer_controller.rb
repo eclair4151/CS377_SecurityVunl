@@ -7,10 +7,14 @@ class MakeTransferController < ApplicationController
       if params[:transfer_type] == "send"
         if user.money > params[:amount].to_f
           user.sent_transactions.create(recipient_id: reciever.id, amount: params[:amount], message: params[:message])
-          user.money -= params[:amount].to_f
-          user.save
+
           reciever.money += params[:amount].to_f
           reciever.save
+
+          user.money -= params[:amount].to_f.round(2)
+          user.save
+          
+
           redirect_to '/transfer', :flash => { :message => "Funds Successfully Sent" }
         else
           redirect_to '/transfer', :flash => { :error => "Insufficient Funds" }
