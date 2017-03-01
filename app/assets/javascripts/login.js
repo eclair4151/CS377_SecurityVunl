@@ -9,6 +9,12 @@ function DoLogin()
     return true;
 }
 
+function DoCreate()
+{
+    document.createForm.password.value = caesarShift(document.createForm.password.value, shiftNumber);
+    return true;
+}
+
 function caesarShift(text, shift)
 {
     var result = "";

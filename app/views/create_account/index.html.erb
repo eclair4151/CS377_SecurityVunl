@@ -6,8 +6,8 @@
     </h1>
   </div>
   <div class="panel panel-default container-color col-sm-6 col-sm-offset-3" style="margin-top: 20px">
-
-    <form action="/create_account" class="panel-body panel-container" method="post">
+    <p id="error"  style="color:red"><%= flash[:error] %></p>
+    <form action="/create_account"  name="createForm" onsubmit="DoCreate();" class="panel-body panel-container" method="post">
       <div class="form-group" style="margin: 15px">
         <label for="usr">Email:</label>
         <input type="email" class="form-control" id="usr" name="email">
@@ -31,9 +31,6 @@
       <button type="submit" class="btn btn-default base-color" style="float:right; margin:15px;">CREATE ACCOUNT</button>
     </form>
     <a href="/login">Already have an account? Login Here.</a>
-
-    <p id="error"  style="color:red"><%= flash[:error] %></p>
-
 
   </div>
 </div>

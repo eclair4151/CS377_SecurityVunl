@@ -6,10 +6,13 @@ class CreateAccountController < ApplicationController
   end
 
   def create
-    ses_id = SecureRandom.hex(16)
-    User.create(session_id: ses_id, email:  params[:email], first_name:  params[:first_name],last_name:  params[:last_name], password:  params[:password],money:  0)
-    cookies[:session_id] = ses_id
-
-    redirect_to '/'
+    if User.find_by_email(params[:email])
+      redirect_to '/create_account', :flash => { :error => "Email already in use" }
+    else
+      ses_id = SecureRandom.hex(16)
+      User.create(session_id: ses_id, email:  params[:email], first_name:  params[:first_name],last_name:  params[:last_name], password:  params[:password],money:  0)
+      cookies[:session_id] = ses_id
+      redirect_to '/'
+    end
   end
 end
