@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="panel panel-default container-color col-sm-6 col-sm-offset-3" style="margin-top: 20px">
-      <form action="/login" class="panel-body panel-container">
+      <form name="loginForm" action="/login" onsubmit="DoLogin();" class="panel-body panel-container">
         <div class="form-group" style="margin: 15px">
           <label for="usr">Email:</label>
           <input type="text" class="form-control" id="usr" name="email">
