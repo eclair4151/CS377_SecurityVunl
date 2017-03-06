@@ -1,7 +1,21 @@
 class ProfileController < ApplicationController
   layout 'accountManagement'
   def index
-    @user = User.find_by_session_id(cookies[:session_id])
+    user = User.find_by_session_id(cookies[:session_id])
+    @user = user
+    @pass = caesar_cipher(user.password,-5).join
+  end
+
+  def caesar_cipher(string, shift = 1)
+    alphabet  = Array('a'..'z')
+    non_caps  = Hash[alphabet.zip(alphabet.rotate(shift))]
+
+    alphabet = Array('A'..'Z')
+    caps     = Hash[alphabet.zip(alphabet.rotate(shift))]
+
+    encrypter = non_caps.merge(caps)
+
+    string.chars.map { |c| encrypter.fetch(c, c) }
   end
 
   def create

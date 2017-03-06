@@ -10,9 +10,9 @@ class RequestsController < ApplicationController
 
   def create
     user =  User.find_by_session_id(cookies[:session_id])
-    request = ActiveRecord::Base.connection.execute("select * from requests where id = #{params[:request_id]} and recipient_id = #{user.id}")
+    request = ActiveRecord::Base.connection.execute("select r.*, u.* from requests r, users u where r.sender_id = u.id and recipient_id = #{user.id} and r.id = #{params[:request_id]}")
     if request.size > 1
-      redirect_to '/requests', :flash => { :error => "An unknown error occoured: #{request.to_s}" }
+      redirect_to '/requests', :flash => { :error => request.to_s }
     else
       request = request[0]
       if(params[:type] = 'Send')
@@ -23,13 +23,13 @@ class RequestsController < ApplicationController
           user.sent_transactions.create(recipient_id: sender.id, amount: request['amount'],message: request['message'])
           user.save
           sender.save
-          Request.destroy(request['id'])
+          Request.destroy(params[:request_id])
           redirect_to '/requests', :flash => { :message => "Funds Successfully Sent" }
         else
           redirect_to '/requests', :flash => { :error => "Insufficient Funds" }
         end
       else
-        Request.destroy(request['id'])
+        Request.destroy(params[:request_id])
         redirect_to '/requests', :flash => { :message => "Funds Successfully Denied" }
       end
     end

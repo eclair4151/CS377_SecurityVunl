@@ -8,10 +8,10 @@ class MakeTransferController < ApplicationController
         if user.money > params[:amount].to_f
           user.sent_transactions.create(recipient_id: reciever.id, amount: params[:amount], message: params[:message])
 
-          reciever.money += params[:amount].to_f
+          reciever.money = reciever.money + params[:amount].to_f
           reciever.save
 
-          user.money -= params[:amount].to_f.round(2)
+          user.money = user.money - params[:amount].to_f.round(2)
           user.save
           
 
