@@ -1,7 +1,11 @@
-.idea*/
+FIXED/.idea/
+VUNL/.idea/
 *.log
 *.sqlite3
-log/
-tmp/
-log/development.log
-Gemfile.lock
+FIXED/log/*
+VUNCL/log/*
+FIXED/tmp/
+VUNL/tmp/
+
+FIXED/Gemfile.lock
+VUNL/Gemfile.lock

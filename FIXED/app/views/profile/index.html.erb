@@ -1,0 +1,10 @@
+<!--Email, first name, last name, password, amt of $$$ -->
+<h1>Name: <%= @user.first_name %>  <%= @user.last_name %></h1>
+<p>Email: <%= @user.email %></p>
+<p>Current Balance: <%= @user.money %></p>
+<br>
+<br>
+<a class="btn btn-primary" href="/banks" role="button">Manage Banks</a>
+<br>
+<br>
+<a class="btn btn-primary" href="/logout" role="button">Logout</a>

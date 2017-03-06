@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Your Sent Requests</strong></div>
+
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Recipient email</th>
+        <th>Recipient name</th>
+        <th>Amount</th>
+        <th>Sent Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @sent_requests.each_with_index do |transaction, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= transaction.recipient.email %></td>
+            <td><%= transaction.recipient.first_name %> <%= transaction.recipient.last_name %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.created_at %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Received Requests</strong></div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sender email</th>
+        <th>Sender name</th>
+        <th>Amount</th>
+        <th>Sent Time</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @received_requests.each_with_index do |transaction, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= transaction.sender.email %></td>
+            <td><%= transaction.sender.first_name %> <%= transaction.sender.last_name %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.created_at %></td>
+            <td>
+            <form  action="/requests" method="post">
+              <input type="hidden" name="request_id" value=<%= transaction.id %>>
+              <input class="btn btn-success" type="submit" name="type" value="Send">
+              <input class="btn btn-danger" type="submit" name="type" value="Deny">
+            </form>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
